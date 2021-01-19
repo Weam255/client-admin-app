@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">      
+
+    <h:head>
+        <meta http-equiv="Content-Type"  
+              content="text/html; charset=UTF-8" /> 
+        <h:outputStylesheet library="style" name="designPage.css" />
+    </h:head>
+    <h:body class="bodya_c">
+        <div>
+            <ui:include src="/comman/header.xhtml"/>
+        </div>
+        <h:form>
+            <div class="edit">
+                <br/><center>
+                    <div class="form-group">  
+                        <h:outputLabel class="control-label col-sm-4">Name In English</h:outputLabel>  
+                        <div class="col-sm-4">  
+                            <h:inputText id="name_en" value="#{bean.name_en}" class="form-control"   
+                                         validatorMessage="name in english is required">  
+                                <f:validateRequired />  
+                            </h:inputText>  
+                        </div>  
+                    </div>  
+                    <div class="form-group">  
+                        <h:outputLabel class="control-label col-sm-4">Name In Arabic</h:outputLabel>  
+                        <div class="col-sm-4">  
+                            <h:inputText id="name_ar" value="#{bean.name_ar}" class="form-control"   
+                                         validatorMessage="name in Arabic is required">  
+                                <f:validateRequired />  
+                            </h:inputText>  
+                        </div>  
+                    </div>  
+                    <div class="form-group">  
+                        <h:outputLabel class="control-label col-sm-4">Age</h:outputLabel>  
+                        <div class="col-sm-4">  
+                            <h:inputText id="age" value="#{bean.age}"  
+                                         validatorMessage="Age is required">  
+                                <f:validateRequired/>  
+                            </h:inputText>  
+                        </div>  
+                    </div>  
+                    <div class="form-group">  
+                        <h:outputLabel  class="control-label col-sm-4">Salary</h:outputLabel>  
+                        <div class="col-sm-4">  
+                            <h:inputText id="salary" value="#{bean.salary}"  
+                                         validatorMessage="Salary is required">  
+                                <f:validateRequired/>  
+                            </h:inputText>  
+                        </div>  
+                    </div>  
+
+                    <div class="form-group">  
+                        <h:outputLabel class="control-label col-sm-4">Type</h:outputLabel>  
+                        <div class="col-sm-4">  
+                            <h:inputText id="type" value="#{bean.type}"    
+                                         validatorMessage="Type is required">  
+                                <f:validateRequired/>  
+                            </h:inputText>  
+                        </div>  
+                    </div>  
+                    <div class="form-group">  
+                        <h:outputLabel  class="control-label col-sm-4">UserName</h:outputLabel>  
+                        <div class="col-sm-4">  
+                            <h:inputText id="name" value="#{bean.name}" 
+                                         validatorMessage="Name is required">  
+                                <f:validateRequired/>  
+                            </h:inputText>  
+                        </div>  
+                    </div>  
+                    <div class="form-group">  
+                        <h:outputLabel class="control-label col-sm-4">Password</h:outputLabel>  
+                        <div class="col-sm-4">  
+                            <h:inputText id="password" value="#{bean.password}"   
+                                         validatorMessage="PASSWORD is required">  
+                                <f:validateRequired/>  
+                            </h:inputText>  
+                        </div>  
+                    </div>  
+                    <br/>
+                    <h:commandButton value="Save" action="#{adminBacking.addUser(bean)}" class="buttomEmpP"></h:commandButton>  
+                    <br/><br/><br/> 
+                </center>
+            </div>
+        </h:form>
+        <div>
+            <ui:include src="/comman/footer.xhtml"/>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"   
+      xmlns:ui = "http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="style" name="designPage.css"/>
+    </h:head>
+    <h:body class="bodya_c">
+        <ui:composition> 
+            <div id="header">
+                <div style="padding-right: 80%">
+                    <br/>
+                    <h:outputText value="Employee Name :#{loginBacking.user.name}"/>
+                </div>
+                <div style="padding-right: 80%">
+                    Date : <h:outputText value="#{loginBacking.currentDate}">
+                        <f:convertDateTime type="date" pattern="#{loginBacking.format}" timeZone="(here your timezone)"/>
+                    </h:outputText>
+                </div>
+                <h:form>
+                    <h:commandButton  class="logout" value="Logout" action="#{loginBacking.logout()}"/>
+                </h:form>
+            </div>
+        </ui:composition>
+    </h:body>
+</html>

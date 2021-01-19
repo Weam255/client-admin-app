@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet library="style" name="designPage.css" />
+    </h:head>
+    <h:body class="bodyw">
+        <div class="logD">
+            <br/><h:form>
+                <h1 style="text-align:center;">Welcome Back</h1>
+                <h1 style="text-align: center;">
+                    To keep connected with us, please Login with you'r
+                    <br/>personal information
+                </h1>
+                <center><br/>
+                    <h:outputText style="font-weight: 990;" value="UserName " />    
+                    <h:inputText id="name" value="#{loginBacking.user.name}"></h:inputText>   
+                    <h:message for="name"></h:message>    
+                    <br/><br/>
+                    <h:outputText style="font-weight: 990;" value="Password " />               
+                    <h:inputSecret id="password" value="#{loginBacking.user.password}"></h:inputSecret>           
+                    <h:message for="password"></h:message>
+                    <br/><br/>
+                    <h:column>  
+                        <f:facet name="header">Login</f:facet>  
+                        <center><h:commandButton class="wbutton" action="#{loginBacking.login()}" value="Login">  
+                            </h:commandButton></center>
+                    </h:column>                
+                </center>
+            </h:form>   
+            <br/>
+        </div>
+    </h:body>
+</html>
+

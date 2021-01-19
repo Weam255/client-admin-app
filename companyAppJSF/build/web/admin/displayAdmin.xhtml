@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+        <h:outputStylesheet library="style" name="designPage.css" />
+    </h:head>
+
+    <h:body class="bodya_c">
+
+        <div>
+            <ui:include src="/comman/header.xhtml"/>
+        </div>
+
+        <h:form>
+            <h:commandButton value="Add Employee" class="buttonB" action="/admin/addAdmin.xhtml"/>
+            <h:commandButton class="buttonC" value="Save Changes" action="#{adminBacking.saveAction()}"/>
+        </h:form>
+
+        <br/><br/><br/><br/>
+
+        <h:form class="DAform">
+            <h:dataTable binding="#{table}" value="#{adminBacking.userList}" var="u" class="panelGridCenter" border="1">
+
+                <h:column>
+                    <f:facet name="header">&nbsp; User ID &nbsp;</f:facet>
+                    <center>
+                        <h:inputText value="#{u.user_id}"
+                                     rendered="#{u.editable}" />
+                        <h:outputText value="#{u.user_id}"
+                                      rendered="#{!u.editable}" />
+                    </center>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">&nbsp; Name in English &nbsp;</f:facet>
+                    <center>
+                        <h:inputText value="#{u.name_en}"
+                                     rendered="#{u.editable}" />
+                        <h:outputText value="#{u.name_en}"
+                                      rendered="#{!u.editable}" />
+                    </center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">&nbsp;Name in Arabic &nbsp;</f:facet>
+                    <center>
+                        <h:inputText value="#{u.name_ar}"
+                                     rendered="#{u.editable}" />
+                        <h:outputText value="#{u.name_ar}"
+                                      rendered="#{!u.editable}" />
+                    </center>
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">&nbsp;Age &nbsp;</f:facet>
+                    <center>
+                        <h:inputText value="#{u.age}"
+                                     rendered="#{u.editable}" />
+                        <h:outputText value="#{u.age}"
+                                      rendered="#{!u.editable}" />
+                    </center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">&nbsp;Salary &nbsp;</f:facet>
+                    <center>
+                        <h:inputText value="#{u.salary}"
+                                     rendered="#{u.editable}" />
+                        <h:outputText value="#{u.salary}"
+                                      rendered="#{!u.editable}" />
+                    </center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">&nbsp;Type &nbsp;</f:facet>
+                    <center>
+                        <h:inputText value="#{u.type}"
+                                     rendered="#{u.editable}" />
+                        <h:outputText value="#{u.type}"
+                                      rendered="#{!u.editable}" />
+                    </center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">&nbsp;Username &nbsp;</f:facet>
+                    <center>
+                        <h:inputText value="#{u.name}"
+                                     rendered="#{u.editable}" />
+                        <h:outputText value="#{u.name}"
+                                      rendered="#{!u.editable}" />
+                    </center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">&nbsp; Password &nbsp;</f:facet>
+                    <center>
+                        <h:inputText value="#{u.password}"
+                                     rendered="#{u.editable}" />
+                        <h:outputText value="#{u.password}"
+                                      rendered="#{!u.editable}" />
+                    </center>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+
+                    <h:commandButton value="Edit" 
+                                     action="#{adminBacking.EditAction(u)}" 
+                                     rendered="#{!u.editable}">        
+                        <f:setPropertyActionListener 
+                            target="#{adminBacking.bean}" value="#{u}" />
+                    </h:commandButton>
+                    <h:commandButton action ="#{adminBacking.delete(u.user_id)}" value="Delete" class="p">  
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+        <div>
+            <ui:include src="/comman/footer.xhtml"/>
+        </div>
+    </h:body>
+</html>
